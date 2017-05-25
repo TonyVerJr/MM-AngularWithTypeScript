@@ -2,11 +2,11 @@
 
 @Component({
     selector: 'about',
-    //templateUrl: './about.component.html'
-    template: `
-        <h1>About Page!</h1>
-        <p>This is the about page.</p>
-    `
+    templateUrl: 'app/about/about.component.html'
+    //template: `
+    //    <h1>About Page!</h1>
+    //    <p>This is the about page.</p>
+    //`
 })
 
 export class AboutComponent implements OnInit {

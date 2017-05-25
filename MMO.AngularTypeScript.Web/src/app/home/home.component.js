@@ -21,10 +21,7 @@ let HomeComponent = class HomeComponent {
 HomeComponent = __decorate([
     core_1.Component({
         selector: 'home',
-        template: `
-        <h1>Welcome Home!</h1>
-        <p>How are you doing?</p>
-    `
+        templateUrl: 'app/home/home.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], HomeComponent);

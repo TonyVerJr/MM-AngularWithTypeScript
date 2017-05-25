@@ -22,19 +22,7 @@ let AppComponent = class AppComponent {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: `
-        <div class="container">
-            <h1>{{title}}</h1>
-            <h2>Made with ASP.NET Core and Visual Studio 2017</h2>
-
-            <nav>
-                <a routerLink="home" routerLinkActive="active">Home</a>
-                <a routerLink="about" routerLinkActive="active">About</a>
-            </nav>
-
-            <router-outlet></router-outlet>
-        </div>
-    `
+        templateUrl: 'app/app.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

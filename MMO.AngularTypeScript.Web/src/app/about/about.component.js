@@ -21,10 +21,7 @@ let AboutComponent = class AboutComponent {
 AboutComponent = __decorate([
     core_1.Component({
         selector: 'about',
-        template: `
-        <h1>About Page!</h1>
-        <p>This is the about page.</p>
-    `
+        templateUrl: 'app/about/about.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], AboutComponent);
