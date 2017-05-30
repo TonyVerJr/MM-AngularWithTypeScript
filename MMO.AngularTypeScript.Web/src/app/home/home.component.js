@@ -10,12 +10,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const ZipCodeValidator_1 = require("../shared/ZipCodeValidator");
+const LettersOnlyValidator_1 = require("../shared/LettersOnlyValidator");
 let HomeComponent = class HomeComponent {
     constructor() {
+        this.isDone = false;
+        this.myNumber = 13;
+        this.myFirstName = "Tony";
+        this.myLastName = 'V';
+        this.mySentence = `Hi, my name is ${this.myFirstName} ${this.myLastName}.  What is your name?`;
+        this.myArrayOfStrings = ["a", 'b', "c"];
+        this.myTuple = ["Hi", 42];
+        this.myGreeting = new Greeter("Tony");
         console.log('HomeComponent -> constructor');
+        var Color;
+        (function (Color) {
+            Color[Color["Red"] = 0] = "Red";
+            Color[Color["Green"] = 1] = "Green";
+            Color[Color["Blue"] = 2] = "Blue";
+        })(Color || (Color = {}));
+        ;
+        let c1 = Color.Red;
+        console.log('c1 = ' + c1);
     }
     ngOnInit() {
         console.log('HomeComponent -> ngOnInit');
+        var AnotherColor;
+        (function (AnotherColor) {
+            AnotherColor[AnotherColor["Red"] = 0] = "Red";
+            AnotherColor[AnotherColor["Green"] = 1] = "Green";
+            AnotherColor[AnotherColor["Blue"] = 2] = "Blue";
+        })(AnotherColor || (AnotherColor = {}));
+        ;
+        let c2 = 2;
+        console.log('c2 = ' + c2);
+        console.log(greeter.greet());
+        function assertNever(x) {
+            throw new Error("Unexpected object: " + x);
+        }
+        function area(s) {
+            switch (s.kind) {
+                case "square": return s.size * s.size;
+                case "rectangle": return s.height * s.width;
+                case "circle": return Math.PI * Math.pow(s.radius, 2);
+                case "triangle": return 0;
+                default: return assertNever(s);
+            }
+        }
+        let strings = ["Hello", "98052", "101"];
+        let validators = {};
+        validators["ZIP code"] = new ZipCodeValidator_1.ZipCodeValidator();
+        validators["Letters only"] = new LettersOnlyValidator_1.LettersOnlyValidator();
+        strings.forEach(s => {
+            for (let name in validators) {
+                console.log(`"${s}" - ${validators[name].isAcceptable(s) ? "matches" : "does not match"} ${name}`);
+            }
+        });
     }
 };
 HomeComponent = __decorate([
@@ -26,4 +76,13 @@ HomeComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
+class Greeter {
+    constructor(message) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+let greeter = new Greeter("world");
 //# sourceMappingURL=home.component.js.map
