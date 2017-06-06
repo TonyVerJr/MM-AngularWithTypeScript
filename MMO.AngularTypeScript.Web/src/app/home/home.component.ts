@@ -15,7 +15,7 @@ import { LettersOnlyValidator } from "../shared/LettersOnlyValidator";
 export class HomeComponent implements OnInit {
 
     // These are all properties
-    isDone: boolean = false;
+    public isDone: boolean = false;
     myNumber: number = 13;
     myFirstName: string = "Tony";
     myLastName: string = 'V';
@@ -33,6 +33,24 @@ export class HomeComponent implements OnInit {
         enum Color { Red, Green, Blue };
         let c1: Color = Color.Red;
         console.log('c1 = ' + c1);
+
+        function classDecorator<T extends { new (...args: any[]): {} }>(constructor: T) {
+            return class extends constructor {
+                newProperty = "new property";
+                hello = "override";
+            }
+        }
+
+        @classDecorator
+        class Greeter2 {
+            property = "property";
+            hello: string;
+            constructor(m: string) {
+                this.hello = m;
+            }
+        }
+
+        console.log(new Greeter2("world"));
     }
 
     ngOnInit() {

@@ -32,6 +32,26 @@ let HomeComponent = class HomeComponent {
         ;
         let c1 = Color.Red;
         console.log('c1 = ' + c1);
+        function classDecorator(constructor) {
+            return class extends constructor {
+                constructor() {
+                    super(...arguments);
+                    this.newProperty = "new property";
+                    this.hello = "override";
+                }
+            };
+        }
+        let Greeter2 = class Greeter2 {
+            constructor(m) {
+                this.property = "property";
+                this.hello = m;
+            }
+        };
+        Greeter2 = __decorate([
+            classDecorator,
+            __metadata("design:paramtypes", [String])
+        ], Greeter2);
+        console.log(new Greeter2("world"));
     }
     ngOnInit() {
         console.log('HomeComponent -> ngOnInit');
